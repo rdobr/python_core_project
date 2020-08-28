@@ -1,0 +1,106 @@
+<!doctype html>
+<div>
+<head>
+    <style>
+        h1{
+         color: #ffffff;
+         }
+        label {
+            font-size: 18.72px;
+        }
+        .block{
+        color: #ffffff;
+        background: #333333;
+        opacity: 0.6;
+        border-radius: 10px;
+        padding: 25px;
+        }
+        body{
+        background-image:url('http://samcudlipp.com/wp-content/uploads/2019/03/BKK-BeachHouse-CudlippVisualisation-EXTPool.jpg');
+        height: 90vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+        }
+        .btn1{
+        display: inline-block;
+        color: #fff;
+        border: 2px solid #ffffff;
+        padding: 1rem 1.5rem;
+        margin: 10px;
+        text-decoration: none;
+        border-radius: 3px;
+        background: none;
+        }
+        .btn{
+        display: inline-block;
+        color: #fff;
+        border: 2px solid #ffffff;
+        padding: 1rem 1.5rem;
+        margin: 10px;
+        text-decoration: none;
+        border-radius: 3px;
+        }
+        .form{
+        text-align: center;
+        }
+        .btn:hover{
+        background-color: #4a4b4c;
+        }
+        .btn1:hover{
+        background-color: #4a4b4c;
+        }
+        .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        }
+        </style>
+</head>
+<div>
+{% block content %}
+    {% if name == 'Roman' or name == 'Maria' or name == 'roman' or name == 'maria' %}
+        <h1>Oh, {{name}}, you again wasted some money!</h1>
+        <form method="POST">
+            <div class="block">
+                <div class="form">
+                    <div>
+                        <label for="months">Month</label>
+                        <input class="input" type="number" min="1" max="12" name= "months" id="months"/>
+                    </div>
+                    <div>
+                        <label for="typeExpense">Type of expense</label>
+                        <input class="input" type="text" name= "typeExpense" id="typeExpense"/>
+                    </div>
+                    <div>
+                        <label for="expense">Expense</label>
+                        <input class="input" type="text" name= "expense" id="expense"/>
+                    </div>
+                    <div>
+                        <label for="amount">Amount</label>
+                        <input class="input" type="number" name= "amount" id="amount"/>
+                    </div>
+                </div>
+                    <input type="submit" name="Submit" class="btn1">
+            </form>
+            <div class="container">
+                <a href="http://127.0.0.1:5000/home" class="btn">Home</a> <br>
+                <a href="http://127.0.0.1:5000/expenses" class="btn">All expenses</a> <br>
+            </div>
+        </div>
+    {% else %}
+        <h1> </h1>
+        <div class="block">
+            <h1>YO, MAN, YOU HAVE NO ACCESS TO THIS PAGE</h1>
+            <h1>SORRY, BRO!</h1>
+            <h3>Try navigating to 'Home' page and change a user</h3>
+            <a href="http://127.0.0.1:5000/home" class="btn">Home</a> <br></div>
+        </div>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

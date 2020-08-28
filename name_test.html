@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<body>
+<style>
+        body{
+        background-image:url('http://samcudlipp.com/wp-content/uploads/2019/03/BKK-BeachHouse-CudlippVisualisation-EXTPool.jpg');
+        height: 90vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+        }
+        .btn{
+        display: inline-block;
+        color: #fff;
+        border: 2px solid #ffffff;
+        padding: 1rem 1.5rem;
+        margin: 10px;
+        text-decoration: none;
+        border-radius: 3px;
+        }
+        </style>
+{% block content %}
+    {% mydb = mysql.connector.connect(host="localhost", user="root", passwd="", database="python_test_db") %}
+    {% mycursor = mydb.cursor() %}
+    {% if name == 'Roman' or name == 'Maria' or name == 'roman' or name == 'maria' %}
+    <h1>Oh, {{name}}, you again wasted some money!</h1> <br>
+    Month <input type="number" min="1" max="12" name= "months" /> <br>
+    Type of expences (taxes/food/insurance etc.) <input type="text" name= "typeExpense"/> <br>
+    Expense <input type="text" name= "expense"/> <br>
+    Amount <input type="number" name= "amount"/> <br>
+    <input type="submit" name="Submit" class="btn">{% sqlform = "Insert into test_expenses(months, typeExpense, expense, amount) values(%s, %s, %s, %s)" %}
+    {% expense1 = [(months, typeExpense, expense, amount)] %}
+    {% mycursor.executemany(sqlform, expense1) %}
+    {% mydb.commit() %}
+    {% else %}
+    <h0>YO, MAN, YOU HAVE NO ACCESS TO THIS PAGE</h0> <br>
+    <h0>SORRY, BRO!</h0> <br>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        h1{
+         color: #ffffff;
+         }
+        table{
+        border-collapse: collapse;
+        border: 1px solid #ffffff;
+        font-size: 18.72px;
+        }
+        th,td{
+        border: 1px solid #ffffff;
+        padding: 10px;
+        }
+        body{
+        background-image:url('http://samcudlipp.com/wp-content/uploads/2019/03/BKK-BeachHouse-CudlippVisualisation-EXTPool.jpg');
+        height: 90vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+        }
+        .btn{
+        display: inline-block;
+        color: #fff;
+        border: 2px solid #ffffff;
+        padding: 1rem 1.5rem;
+        margin: 10px;
+        text-decoration: none;
+        border-radius: 3px;
+        }
+        .btn:hover{
+        background-color: #4a4b4c;
+        }
+        .block{
+        color: #ffffff;
+        background: #333333;
+        opacity: 0.6;
+        border-radius: 10px;
+        padding: 25px;
+        }
+        </style>
+</head>
+    <body>
+        <h1>Here you can review all expenses of your family</h1>
+        <div class="block">
+                <table>
+                    <tr>
+                        <th>Month</th>
+                        <th>Type of expense</th>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                    </tr>
+                    {% for expense in expenses %}
+                        <tr>
+                            <td>{{ expense.0 }}</td>
+                            <td>{{ expense.1 }}</td>
+                            <td>{{ expense.2 }}</td>
+                            <td>{{ expense.3 }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            <a href="http://127.0.0.1:5000/home" class="btn">Home</a> <br>
+        </div>
+    </body>
+</html>
